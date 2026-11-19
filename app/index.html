@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Leonida Ledger — GTA 6 Trophy Guide &amp; Tracker</title>
+<meta name="description" content="Offline guide and tracker for all 55 PlayStation 5 trophies of Grand Theft Auto VI: checklist, roadmap to the platinum, missable flags and cited guides.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="app-header">
+  <h1 class="app-title">Leonida Ledger</h1>
+  <p class="app-subtitle">The GTA 6 trophy guide &amp; tracker — all 55 PS5 trophies, offline, in your own words with sources. Platinum rated 4/10, about 200 hours (PowerPyx).</p>
+  <div class="progress-wrap" id="progress-wrap">
+    <span class="progress-count" id="progress-count">0 / 55 earned</span>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    <span class="progress-note" id="progress-percent">0% to platinum</span>
+    <span class="progress-note" id="progress-grades"></span>
+  </div>
+  <nav class="main-nav" aria-label="Views">
+    <button type="button" class="nav-tab" data-view="checklist" aria-selected="true">Checklist</button>
+    <button type="button" class="nav-tab" data-view="roadmap" aria-selected="false">Roadmap to Platinum</button>
+    <button type="button" class="nav-tab" data-view="missables" aria-selected="false">Missables</button>
+    <button type="button" class="nav-tab" data-view="about" aria-selected="false">About &amp; Progress</button>
+  </nav>
+</header>
+
+<div class="toolbar" id="toolbar">
+  <input class="search-box" id="search-input" type="search" placeholder="Search trophies, descriptions and guides…" aria-label="Search trophies">
+  <div class="chip-row" id="grade-chips" aria-label="Filter by grade">
+    <button type="button" class="chip" data-value="all">All grades</button>
+    <button type="button" class="chip" data-value="platinum">Platinum</button>
+    <button type="button" class="chip" data-value="gold">Gold</button>
+    <button type="button" class="chip" data-value="silver">Silver</button>
+    <button type="button" class="chip" data-value="bronze">Bronze</button>
+  </div>
+  <div class="chip-row" id="kind-chips" aria-label="Filter by kind">
+    <button type="button" class="chip" data-value="all">All kinds</button>
+    <button type="button" class="chip" data-value="story">Story</button>
+    <button type="button" class="chip missable-chip" data-value="missable">⚠ Missable</button>
+    <button type="button" class="chip" data-value="collectibles">Collectibles</button>
+    <button type="button" class="chip" data-value="activities">Activities</button>
+    <button type="button" class="chip" data-value="online">Online</button>
+  </div>
+  <div class="chip-row" id="earned-chips" aria-label="Filter by earned state">
+    <button type="button" class="chip" data-value="all">All</button>
+    <button type="button" class="chip" data-value="earned">Earned only</button>
+    <button type="button" class="chip" data-value="unearned">Unearned only</button>
+  </div>
+  <div class="toolbar-actions">
+    <label class="spoiler-toggle"><input type="checkbox" id="spoiler-toggle"> Hide story spoilers</label>
+    <button type="button" class="tool-button" id="export-button">Export progress</button>
+    <button type="button" class="tool-button" id="import-button">Import progress</button>
+    <input type="file" id="import-file" accept="application/json,.json" hidden>
+  </div>
+  <span class="progress-note" id="import-status" role="status"></span>
+</div>
+
+<main>
+  <section id="checklist-view">
+    <div class="layout">
+      <div>
+        <p class="section-note" id="list-count">55 trophies</p>
+        <div class="trophy-list" id="trophy-list"></div>
+      </div>
+      <aside class="detail-pane" id="detail-pane" aria-label="Selected trophy guide"></aside>
+    </div>
+  </section>
+  <section id="roadmap-view" hidden>
+    <div class="layout layout-single" id="roadmap-wrap">
+      <div id="roadmap-content"></div>
+    </div>
+  </section>
+  <section id="missables-view" hidden>
+    <div class="layout layout-single">
+      <div id="missables-content"></div>
+    </div>
+  </section>
+  <section id="about-view" hidden>
+    <div class="layout layout-single">
+      <div id="about-content"></div>
+    </div>
+  </section>
+</main>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

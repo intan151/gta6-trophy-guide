@@ -1,0 +1,335 @@
+/* Leonida Ledger — the look of the guide. One theme: warm paper, coral accent,
+   serif display type for titles, system sans for the body. No web fonts, no
+   images from the network: everything the page shows is its own CSS. */
+
+:root {
+  --paper: #f6f3ee;
+  --card: #ffffff;
+  --ink: #1d2129;
+  --muted: #626a75;
+  --line: #e3ddd2;
+  --accent: #d24e2a;
+  --accent-soft: #fbe9e2;
+  --gold: #d4af5a;
+  --silver: #aeb6bf;
+  --bronze: #c98b5e;
+  --platinum: #7fa8c9;
+  --warn-bg: #fff3cd;
+  --warn-ink: #7a5b00;
+  --radius: 14px;
+  --radius-sm: 6px;
+}
+
+* { box-sizing: border-box; }
+
+[hidden] { display: none !important; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+a { color: var(--accent); }
+
+button, input, select { font: inherit; }
+
+.app-header {
+  border-bottom: 1px solid var(--line);
+  background: var(--card);
+  padding: 18px 24px 0;
+}
+
+.app-title {
+  font-family: "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: 30px;
+  margin: 0;
+  letter-spacing: 0.2px;
+}
+
+.app-subtitle {
+  color: var(--muted);
+  margin: 2px 0 14px;
+  font-size: 14px;
+}
+
+.progress-wrap { display: flex; align-items: center; gap: 14px; padding-bottom: 14px; }
+
+.progress-count {
+  font-family: "Iowan Old Style", Palatino, Georgia, serif;
+  font-size: 26px;
+  white-space: nowrap;
+}
+
+.progress-bar {
+  flex: 1;
+  height: 12px;
+  background: var(--line);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill { height: 100%; background: var(--accent); width: 0; }
+
+.progress-note { color: var(--muted); font-size: 13px; white-space: nowrap; }
+
+.main-nav { display: flex; gap: 4px; }
+
+.nav-tab {
+  border: 1px solid transparent;
+  border-bottom: none;
+  background: none;
+  padding: 9px 16px;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  cursor: pointer;
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.nav-tab[aria-selected="true"] {
+  background: var(--paper);
+  border-color: var(--line);
+  color: var(--ink);
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--line);
+  background: var(--card);
+}
+
+.search-box {
+  flex: 1 1 220px;
+  min-width: 180px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  background: var(--paper);
+}
+
+.chip-row { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.chip {
+  border: 1px solid var(--line);
+  background: var(--card);
+  border-radius: 999px;
+  padding: 5px 12px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.chip[aria-pressed="true"] {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #fff;
+}
+
+.chip.missable-chip[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); }
+
+.toolbar-actions { display: flex; gap: 8px; align-items: center; margin-left: auto; }
+
+.tool-button {
+  border: 1px solid var(--line);
+  background: var(--card);
+  border-radius: var(--radius-sm);
+  padding: 7px 12px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.tool-button:hover { border-color: var(--accent); }
+
+.spoiler-toggle { display: flex; align-items: center; gap: 6px; font-size: 13px; font-weight: 600; color: var(--muted); cursor: pointer; }
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: 18px;
+  padding: 18px 24px 32px;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.layout-single { grid-template-columns: minmax(0, 1fr); }
+
+.trophy-list { display: flex; flex-direction: column; gap: 10px; }
+
+.trophy-card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 14px 16px;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+}
+
+.trophy-card:hover { border-color: var(--accent); }
+
+.trophy-card.selected { border-color: var(--accent); box-shadow: 0 0 0 2px var(--accent-soft); }
+
+.trophy-card.earned { opacity: 0.85; }
+
+.trophy-card-top { display: flex; align-items: center; gap: 10px; }
+
+.earned-box { width: 20px; height: 20px; accent-color: var(--accent); flex: none; cursor: pointer; }
+
+.grade-medal {
+  flex: none;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 800;
+  color: #fff;
+}
+
+.grade-platinum { background: var(--platinum); }
+.grade-gold { background: var(--gold); color: #4a3600; }
+.grade-silver { background: var(--silver); color: #26313d; }
+.grade-bronze { background: var(--bronze); }
+
+.trophy-name { font-weight: 700; font-size: 16px; }
+
+.trophy-name.earned-name { text-decoration: line-through; text-decoration-color: var(--accent); }
+
+.trophy-desc { color: var(--muted); font-size: 14px; margin: 6px 0 0 36px; }
+
+.trophy-meta { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 0 36px; }
+
+.tag {
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 2px 9px;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.tag.missable-tag { background: var(--warn-bg); border-color: #e6c65a; color: var(--warn-ink); }
+
+.tag.hidden-tag { background: #eceff3; }
+
+.detail-pane {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 20px 22px;
+  align-self: start;
+  position: sticky;
+  top: 16px;
+}
+
+.detail-pane h2 { font-family: "Iowan Old Style", Palatino, Georgia, serif; font-size: 24px; margin: 4px 0 2px; }
+
+.detail-official { color: var(--muted); font-style: italic; margin: 0 0 12px; }
+
+.detail-guide { font-size: 15px; }
+
+.detail-guide p { margin: 0 0 10px; }
+
+.missable-banner {
+  background: var(--warn-bg);
+  color: var(--warn-ink);
+  border: 1px solid #e6c65a;
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+  font-weight: 600;
+  margin: 0 0 12px;
+}
+
+.sources-box { border-top: 1px solid var(--line); margin-top: 16px; padding-top: 12px; }
+
+.sources-box h3 { font-size: 13px; text-transform: uppercase; letter-spacing: 0.6px; color: var(--muted); margin: 0 0 8px; }
+
+.sources-box ul { margin: 0; padding-left: 18px; }
+
+.sources-box li { margin-bottom: 4px; font-size: 14px; }
+
+.detail-empty { color: var(--muted); }
+
+.roadmap-phase {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+
+.roadmap-phase h2 { font-family: "Iowan Old Style", Palatino, Georgia, serif; margin: 0 0 4px; font-size: 21px; }
+
+.roadmap-phase p { color: var(--muted); margin: 0 0 12px; }
+
+.phase-trophies { display: flex; flex-wrap: wrap; gap: 6px; }
+
+.phase-trophy {
+  border: 1px solid var(--line);
+  background: var(--paper);
+  border-radius: var(--radius-sm);
+  padding: 5px 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.phase-trophy.earned { text-decoration: line-through; opacity: 0.7; }
+
+.phase-count { font-weight: 800; color: var(--accent); }
+
+.callout {
+  background: var(--accent-soft);
+  border: 1px solid #f0c4b2;
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin-bottom: 16px;
+}
+
+.callout h2 { margin: 0 0 6px; font-size: 18px; }
+
+.callout p { margin: 0 0 6px; }
+
+.section-note { color: var(--muted); font-size: 14px; margin: 0 0 14px; }
+
+.empty-state { color: var(--muted); padding: 24px; text-align: center; }
+
+.about-block {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  margin-bottom: 14px;
+}
+
+.about-block h2 { font-family: "Iowan Old Style", Palatino, Georgia, serif; margin: 0 0 8px; font-size: 20px; }
+
+.about-block p { margin: 0 0 8px; }
+
+.stat-grid { display: flex; flex-wrap: wrap; gap: 10px; margin: 8px 0; }
+
+.stat-cell {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm);
+  padding: 8px 14px;
+  background: var(--paper);
+  font-weight: 700;
+}
+
+.stat-cell span { display: block; font-size: 12px; color: var(--muted); font-weight: 600; }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: minmax(0, 1fr); }
+  .detail-pane { position: static; }
+}
